@@ -40,7 +40,7 @@ const Register = async (req, res, next) => {
 const Login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    if (!email || !pass) {
+    if (!email || !password) {
       res.status(400);
       throw new Error("Please fill all the input fields");
     }
@@ -51,7 +51,14 @@ const Login = async (req, res) => {
     const validPassword = await bcrypt.compare(password, user.password);
     !validPassword && res.status(400).json("Invalid credentials");
 
-    res.status(200).json(user);
+    const token = jwt.sign(
+      { id: user._id, isAdmin: user.isAdmin },
+      process.env.JWT
+    );
+
+    const { password: pass, isAdmin, ...other } = user._doc;
+
+    res.status(200).json({ ...other, token });
   } catch (err) {
     next(err);
   }
