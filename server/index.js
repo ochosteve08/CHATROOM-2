@@ -5,7 +5,8 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const multer = require("multer");
-const userRoute = require("./src/route/user.route");
+
+const userRoute = require('./src/route/user.route')
 const authRoute = require("./src/route/auth.route");
 const postRoute = require("./src/route/post.route");
 const conversationRoute = require("./src/route/conversation.route");

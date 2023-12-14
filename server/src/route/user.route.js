@@ -18,3 +18,4 @@ router.get("/friends/:userId",getFriends)
 router.put("/:id/follow",followUser)
 router.put("/:id/unfollow", unfollowUser);
 
+module.exports = router
