@@ -1,4 +1,3 @@
-import asyncHandler from "express-async-handler";
 const ConversationModel = require("../model/conversation.model");
 const MessageModel = require("../model/message.model");
 
