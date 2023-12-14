@@ -14,9 +14,10 @@ const createMessage = async (req, res, next) => {
 //get
 
 const getMessages = async (req, res, next) => {
+  const { conversationId } = req.params;
   try {
     const messages = await MessageModel.find({
-      conversationId: req.params.conversationId,
+      conversationId,
     });
     res.status(200).json(messages);
   } catch (err) {
@@ -30,4 +31,8 @@ const allMessages = async (req, res, next) => {
   res.status(200).json(allMsg);
 };
 
-module.exports = { createMessage, getMessages, allMessages };
+module.exports = {
+  createMessage,
+  getMessages,
+  allMessages,
+};
