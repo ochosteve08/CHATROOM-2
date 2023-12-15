@@ -1,5 +1,5 @@
 import {useRef} from 'react'
-// import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import './Registration.css'
 
@@ -8,7 +8,7 @@ const Registration = () => {
       const email = useRef();
       const password = useRef();
       const passwordAgain = useRef();
-    //   const navigate = useNavigate()
+      const navigate = useNavigate()
 
     console.log(username.current?.value)
 
@@ -25,7 +25,7 @@ const Registration = () => {
             };
             try {
               await axios.post("/auth/register", user);
-            //   navigate("/login");
+              navigate("/login");
             } catch (err) {
               console.log(err);
             }
@@ -75,7 +75,13 @@ const Registration = () => {
             <button className="registerButton" type="submit">
               Sign Up
             </button>
-            <button className="loginButton">Log into Account</button>
+            <button
+              type="button"
+              className="loginButton"
+              onClick={() => navigate("/login")}
+            >
+              Log into Account
+            </button>
           </form>
         </div>
       </div>
