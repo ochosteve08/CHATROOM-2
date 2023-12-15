@@ -1,4 +1,5 @@
-import Registration from "./pages/registration/Registration"
+// import Registration from "./pages/registration/Registration"
+import Login from './pages/login/Login'
 
 function App() {
 
@@ -6,7 +7,8 @@ function App() {
   return (
     <div>
   
-     <Registration/>
+     {/* <Registration/> */}
+     <Login />
     </div>
   )
 }
